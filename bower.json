@@ -12,6 +12,10 @@
     "cookie law",
     "banner"
   ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-cookies": "~1.4.0"
+  },
   "authors": [
     "Palmabit Srl<hello@palmabit.com>"
   ],
@@ -21,5 +25,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "resolutions": {
+    "angular": "1.4.9"
+  }
 }

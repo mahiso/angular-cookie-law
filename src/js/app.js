@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('angular-cookie-law', []);
+angular.module('angular-cookie-law', ['ngCookies']);

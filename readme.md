@@ -27,6 +27,7 @@ Add a `<script>` and `<style>` to your `index.html`:
 ```html
 <link rel="stylesheet" href="/bower_components/angular-cookie-law/dist/angular-cookie-law.min.css">
 
+<script src="/bower_components/angular-cookies/angular-cookies.min.js"></script>
 <script src="/bower_components/angular-cookie-law/dist/angular-cookie-law.min.js"></script>
 ```
 
@@ -51,6 +52,14 @@ This directive create a banner that inform users about cookies that contains a b
 ### Options
 
 From version 0.2.0, all banner texts are refreshed if one of these attributes change: **message**, **acceptText**, **declineText**, **policyText**, **policyURL**.
+
+#### message
+
+```
+cookieDomain: '.domain.co'
+```
+
+The site domain to handle subdomains (default: undefined).
 
 #### message
 
