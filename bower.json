@@ -13,14 +13,13 @@
     "banner"
   ],
   "dependencies": {
-    "angular": "~1.4.0",
-    "angular-cookies": "~1.4.0"
+    "angular-cookies": "^1.5.8",
   },
   "authors": [
     "Palmabit Srl<hello@palmabit.com>"
   ],
   "contributors": [
-      "Maik Hinrichs <maik@mahiso.de>"
+    "Maik Hinrichs <maik@mahiso.de>"
   ],
   "license": "MIT",
   "ignore": [
