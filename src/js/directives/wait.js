@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('angular-cookie-law')
 
     .directive('cookieLawWait', ['CookieLawService', function (CookieLawService) {

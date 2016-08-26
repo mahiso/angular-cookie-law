@@ -1,6 +1,6 @@
 {
   "name": "angular-cookie-law",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "main": [
     "dist/angular-cookie-law.min.js",
     "dist/angular-cookie-law.min.css"
@@ -18,6 +18,9 @@
   },
   "authors": [
     "Palmabit Srl<hello@palmabit.com>"
+  ],
+  "contributors": [
+      "Maik Hinrichs <maik@mahiso.de>"
   ],
   "license": "MIT",
   "ignore": [

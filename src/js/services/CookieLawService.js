@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('angular-cookie-law')
 
 .factory('CookieLawService', [
@@ -10,18 +12,18 @@ angular.module('angular-cookie-law')
             $cookies.put(cookieLawName, cookieLawAccepted, { domain: cookieDomain, expires: expireDate });
         };
 
-        var decline = function(cookieDomain) {
-            $cookies.put(cookieLawName, cookieLawDeclined, { domain: cookieDomain, expires: expireDate })
+        var decline = function(expireDate, cookieDomain) {
+            $cookies.put(cookieLawName, cookieLawDeclined, { domain: cookieDomain, expires: expireDate });
         };
 
         var isEnabled = function() {
-            return $cookies.get(cookieLawName) === cookieLawAccepted
+            return $cookies.get(cookieLawName) === cookieLawAccepted;
         };
 
         return {
             accept: accept,
             decline: decline,
             isEnabled: isEnabled
-        }
+        };
     }
 ]);

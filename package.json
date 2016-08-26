@@ -1,6 +1,6 @@
 {
     "name": "angular-cookie-law",
-    "version": "0.2.4",
+    "version": "0.2.5",
     "description": "Angular module that provides a banner to inform users about cookie law",
     "keywords": [
         "angular",
@@ -18,7 +18,8 @@
     },
     "author": "Palmabit Srl<hello@palmabit.com>",
     "contributors": [
-        "Jclappiway<jcl@appiway.com>"
+        "Jclappiway<jcl@appiway.com>",
+        "Maik Hinrichs <maik@mahiso.de>"
     ],
     "license": "MIT",
     "devDependencies": {

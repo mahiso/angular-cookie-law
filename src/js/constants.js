@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('angular-cookie-law')
 
     .value('cookieLawName', '_cle')

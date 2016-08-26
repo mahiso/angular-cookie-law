@@ -1,15 +1,20 @@
 /**
- * angular-cookie-law - @version v0.2.4 - @author Palmabit Srl<hello@palmabit.com> - @contributors Jclappiway<jcl@appiway.com>
+ * angular-cookie-law - @version v0.2.5 - @author Palmabit Srl<hello@palmabit.com> - @contributors Jclappiway<jcl@appiway.com>,Maik Hinrichs <maik@mahiso.de>
  */
 'use strict';
 
 angular.module('angular-cookie-law', ['ngCookies']);
+
+'use strict';
 
 angular.module('angular-cookie-law')
 
     .value('cookieLawName', '_cle')
     .value('cookieLawAccepted', 'accepted')
     .value('cookieLawDeclined', 'declined');
+
+'use strict';
+
 angular.module('angular-cookie-law')
 
 .directive('cookieLawBanner', ['$compile', 'CookieLawService', function($compile, CookieLawService) {
@@ -30,24 +35,24 @@ angular.module('angular-cookie-law')
                 declineButton = '',
                 policyButton = '';
 
-            scope.$watchGroup(['message', 'acceptText', 'declineText', 'policyText', 'policyURL'], function() {
+            scope.$watchGroup(['message', 'accepttext', 'declinetext', 'policytext', 'policyurl'], function() {
                 if (CookieLawService.isEnabled()) {
                     return;
                 }
 
                 options = {
                     message: attr.message || 'We use cookies to track usage and preferences.', //Message displayed on bar
-                    acceptButton: attr.acceptButton || true, //Set to true to show accept/enable button
-                    acceptText: attr.acceptText || 'I Understand', //Text on accept/enable button
-                    declineButton: attr.declineButton || false, //Set to true to show decline/disable button
-                    declineText: attr.declineText || 'Disable Cookies', //Text on decline/disable button
-                    policyButton: attr.policyButton || false, //Set to true to show Privacy Policy button
-                    policyText: attr.policyText || 'Privacy Policy', //Text on Privacy Policy button
-                    policyURL: attr.policyUrl || '/privacy-policy/', //URL of Privacy Policy
-                    policyBlank: attr.policyBlank && attr.policyBlank === 'true' ? 'target="_blank"' : '',
-                    expireDays: attr.expireDays || 365, //Number of days for cookieBar cookie to be stored for
+                    acceptButton: attr.acceptbutton || true, //Set to true to show accept/enable button
+                    acceptText: attr.accepttext || 'I Understand', //Text on accept/enable button
+                    declineButton: attr.declinebutton || false, //Set to true to show decline/disable button
+                    declineText: attr.declinetext || 'Disable Cookies', //Text on decline/disable button
+                    policyButton: attr.policybutton || false, //Set to true to show Privacy Policy button
+                    policyText: attr.policytext || 'Privacy Policy', //Text on Privacy Policy button
+                    policyURL: attr.policyurl || '/privacy-policy/', //URL of Privacy Policy
+                    policyBlank: attr.policyblank && attr.policyBlank === 'true' ? 'target="_blank"' : '',
+                    expireDays: attr.expiredays || 365, //Number of days for cookieBar cookie to be stored for
                     element: attr.element || 'body', //Element to append/prepend cookieBar to. Remember "." for class or "#" for id.
-                    cookieDomain: attr.cookieDomain || undefined //domain
+                    cookieDomain: attr.cookiedomain || undefined //domain
                 };
 
                 //Sets expiration date for cookie
@@ -69,7 +74,7 @@ angular.module('angular-cookie-law')
                 }
 
                 template =
-                    '<div class="cl-banner"><p>' + options.message + '<br>' + acceptButton + declineButton + policyButton + '</p></div>';
+                    '<div class="cl-banner"><p>' + options.message + acceptButton + declineButton + policyButton + '</p></div>';
 
                 element.html(template);
                 $compile(element.contents())(scope);
@@ -82,7 +87,7 @@ angular.module('angular-cookie-law')
                 };
 
                 scope.decline = function() {
-                    CookieLawService.decline(options.cookieDomain);
+                    CookieLawService.decline(expireDate, options.cookieDomain);
                     scope.onDecline();
                 };
             });
@@ -100,8 +105,10 @@ angular.module('angular-cookie-law')
                 $rootScope.$broadcast('cookieLaw.decline');
             };
         }]
-    }
+    };
 }]);
+
+'use strict';
 
 angular.module('angular-cookie-law')
 
@@ -134,6 +141,9 @@ angular.module('angular-cookie-law')
         }
       };
     }]);
+
+'use strict';
+
 angular.module('angular-cookie-law')
 
 .factory('CookieLawService', [
@@ -146,18 +156,18 @@ angular.module('angular-cookie-law')
             $cookies.put(cookieLawName, cookieLawAccepted, { domain: cookieDomain, expires: expireDate });
         };
 
-        var decline = function(cookieDomain) {
-            $cookies.put(cookieLawName, cookieLawDeclined, { domain: cookieDomain, expires: expireDate })
+        var decline = function(expireDate, cookieDomain) {
+            $cookies.put(cookieLawName, cookieLawDeclined, { domain: cookieDomain, expires: expireDate });
         };
 
         var isEnabled = function() {
-            return $cookies.get(cookieLawName) === cookieLawAccepted
+            return $cookies.get(cookieLawName) === cookieLawAccepted;
         };
 
         return {
             accept: accept,
             decline: decline,
             isEnabled: isEnabled
-        }
+        };
     }
 ]);

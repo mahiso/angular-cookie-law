@@ -1,19 +1,12 @@
 /**
- * angular-cookie-law - @version v0.2.4 - @author Palmabit Srl<hello@palmabit.com> - @contributors Jclappiway<jcl@appiway.com>
+ * angular-cookie-law - @version v0.2.5 - @author Palmabit Srl<hello@palmabit.com> - @contributors Jclappiway<jcl@appiway.com>,Maik Hinrichs <maik@mahiso.de>
  */
 .cl-banner {
-  background: #000000;
+  background: #AA5555;
   height: auto;
-  min-height: 24px;
-  line-height: 24px;
   color: #eeeeee;
   text-align: center;
-  padding: 15px 25px;
-  z-index: 10000;
-
-  position: fixed;
-  top: 0;
-  left: 0;
+  padding: 5px 5px;
   width: 100%;
 }
 
